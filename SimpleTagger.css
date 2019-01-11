@@ -19,6 +19,9 @@
     .tagger-ac-list-selected .tag.del-hover {
       background-color: black;
       color: white; }
+	  .tagger-ac-list-selected .tag.del-hover .tag-close{
+      color: white; 
+	  transition: color 1s; }
 
 .tagger-ac-list {
   text-align: left;

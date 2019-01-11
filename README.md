@@ -12,15 +12,23 @@ Simply copy SimpleTagger.js and SimpleTagger.css to your server, and import both
 
 For SASS users, you can use SimpleTagger.scss instead of SimpleTagger.css to integrate as a SASS import.
 
+## Compatibility
+
+SimpleTagger is written in vanilla Javascript and has no dependencies. However if `url` is defined in the settings object it does use Promises and async functions to await the result from your server.
+
+See https://caniuse.com/#feat=async-functions for supported browsers.
+
 ## Usage
 
-Example Usage: let tagger = new SimpleTagger('inputElement', 'hiddenElement', {values: ['autocomplete', 'values', 'go', 'here']);
+Example Usage:
 
-**inputEl**     A DOM reference to an input or textarea element to which the tagger should be attached
+    let tagger = new SimpleTagger('inputElement', 'hiddenElement', {values: ['autocomplete', 'values', 'go', 'here']});
 
-**hiddenEl**    A DOM reference to an input or textarea (typically hidden) that will store the comma-delimited results for submission
+**inputElement**     A DOM reference or DOM id to an input or textarea element to which the tagger should be attached
 
-**settings**    An object of settings, see below. At very least, either 'url' or 'values' is required.
+**hiddenElement**    A DOM reference or DOM id to an input or textarea (typically hidden) that will store the comma-delimited results for submission
+
+**settings**    A JSON object of settings, see below. At very least, either 'url' or 'values' is required.
 
 ### Settings:
 
@@ -42,11 +50,11 @@ Example Usage: let tagger = new SimpleTagger('inputElement', 'hiddenElement', {v
  
  #### autocompleteOnly:
  
- True to remove tagging functionality. Autocomplete selections will simply be applied as the value of inputEl.
+ True to remove tagging functionality. Autocomplete selections will simply be applied as the value of inputElement.
  
  #### autocompleteAppend:
  
- True to append multiple autocomplete values together as the value of inputEl, delimited by a comma and space. Only applies if settings.autocompleteOnly is true.
+ True to append multiple autocomplete values together as the value of inputElement, delimited by a comma and space. Only applies if settings.autocompleteOnly is true.
 
 ### Methods:
 

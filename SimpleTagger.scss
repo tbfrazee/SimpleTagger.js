@@ -30,6 +30,10 @@ $tag-close-txt-color: white !default;
         &.del-hover {
             background-color: $tag-close-bg-color;
             color: $tag-close-txt-color;
+			.tag-close {
+				color: $tag-close-txt-color;
+				transition: color 1s;
+			}
         }
     }
 }

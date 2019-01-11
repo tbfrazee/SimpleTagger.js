@@ -1,7 +1,7 @@
 /**
  * A simple, lightweight Javascript script that turns any form input field into an autocomplete and/or tagger.
  * 
- * Example Usage: let tagger = new SimpleTagger('inputElement', 'hiddenElement', {values: ['autocomplete', 'values', 'go', 'here']);
+ * Example Usage: let tagger = new SimpleTagger('inputElement', 'hiddenElement', {values: ['autocomplete', 'values', 'go', 'here']});
  * 
  * @param {any} inputEl     A DOM reference to an input or textarea element to which the tagger should be attached
  * @param {any} hiddenEl    A DOM reference to an input or textarea (typically hidden) that will store the comma-delimited results for submission
@@ -43,7 +43,13 @@ function SimpleTagger(inputEl, hiddenEl, settings) {
     //Create selected Div
     if(!tagger.settings.autocompleteOnly) {
         selectedDiv = document.createElement("div");
-        selectedDiv.classList = "ac-list-selected";
+        selectedDiv.classList = "tagger-ac-list-selected";
+		
+		if(typeof inputEl == 'string')
+			inputEl = document.getElementById(inputEl)
+		if(typeof hiddenEl == 'string')
+			hiddenEl = document.getElementById(hiddenEl)
+		
         inputEl.parentNode.insertBefore(selectedDiv, inputEl.nextSibling);
     }
 
@@ -189,6 +195,7 @@ function SimpleTagger(inputEl, hiddenEl, settings) {
             triggerEvent("onTag", [el.dataset.acValue]);
             destroyAC();
             inputEl.value = "";
+			inputEl.focus();
         }
     }
 
